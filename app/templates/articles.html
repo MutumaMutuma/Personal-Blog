@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<body>
+{% block content %}
+<div class="container">
+    <h1 style="text-shadow:2px ligtblue;"> {{ title }} </h1>
+    <div class="row">
+        {% for article in news %}
+        <div class="col-md-4">
+            <div style="box-shadow:2px 2px 2px 2px lightgrey;" class="panel panel-default">
+                <h4> {{ article.title }} </h4>
+                <img src="{{ article.urlToImage}}" height="200px" width="350px">
+                <h4 style="color:black; font-family: 'Handlee', cursive;"> {{article.description}} </h4>
+                <p style="color:black; font-family: 'Handlee', cursive;"> Author: {{article.author}} </p>   
+                <p style="color:black; font-family: 'Handlee', cursive;"> Published on : {{article.publishedAt}} </p>
+                <a href="{{ article.url}}"> <button target="_blank" class="btn btn-outline-warning btn-sm" >View full story</button> </a>
+                   
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+    </body>

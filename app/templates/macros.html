@@ -1,0 +1,13 @@
+
+{% macro displaySourceList(source_list) %}
+{% include 'navbar.html' %}
+
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+    <ul>
+    {% for source in source_list %}
+        <li>{{ source.title}}</li>
+        <button style="background-color:#47b78c; border:1px solid black;" class="btn btn">Visit</button>
+    {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
