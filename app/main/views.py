@@ -150,4 +150,5 @@ def fashion(category = "Fashion"):
     fashions = Post.query.filter_by(category = "Fashion")
     
     title = "Nature Blogs"
+    
     return render_template('fashion.html', fashions= fashions, title='New Post', post ='New Post')
