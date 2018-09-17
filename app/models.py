@@ -46,6 +46,10 @@ class Post(db.Model):
     
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     post_id = db.relationship('Comment', backref = 'comments', lazy= "dynamic")
+       
+    def delete_post(self):
+           db.session.delete()
+           db.session.commit()
 
     def __repr__(self):
         return f'{self.title}'

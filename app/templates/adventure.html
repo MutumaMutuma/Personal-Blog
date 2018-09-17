@@ -20,15 +20,17 @@
                                 </div>
                                 <div class="card-body">
                                 <small> {{ adventure.posted_on }}</small>
-                                <h4>Category: {{ adventure.category }}</h4>
-                                <small> {{ adventure.title }} </small>
-                                
+                                <h3> {{ adventure.title }} </h3>
+                               
                                 <p> {{ adventure.content }}</p>
                                 <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a></small>
                                 <br>
                                 <br>
                                 <div><a href="/comment/new/{{adventure.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+                                {% if current_user.is_authenticated %}
+                                    <p><a href="/delete/{{ adventure.id}}">Delete Blog</a></p>
                                 
+                                {% endif %}
                                 </div>
                                 
                             </div>

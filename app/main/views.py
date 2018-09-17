@@ -153,3 +153,46 @@ def fashion(category = "Fashion"):
     title = "Fashion Blogs"
     
     return render_template('fashion.html', fashions= fashions, title=title, post ='New Post')
+
+@main.route('/frenemies/new', methods=['GET','POST'])
+@login_required
+def frenemies(category = "Fashion"):
+
+    frenemiess = Post.query.filter_by(category = "Frenemies")
+    
+    title = "Frenemies Blogs"
+        
+    return render_template('frenemies.html', frenemiess= frenemiess, title=title, post ='New Post')
+
+
+
+@main.route('/feuds/new', methods=['GET','POST'])
+@login_required
+def feuds(category = "Feuds"):
+
+    feudss = Post.query.filter_by(category = "Feuds")
+    
+    title = "Feuds Blogs"
+    
+    return render_template('fashion.html', feudss= feudss, title=title, post ='New Post')
+
+
+
+@main.route('/newcars/new', methods=['GET','POST'])
+@login_required
+def newcars(category = "New cars"):
+
+    newcarss = Post.query.filter_by(category = "New cars")
+    
+    title = "New cars Blogs"
+    
+    return render_template('fashion.html', newcarss= newcarss, title=title, post ='New Post')
+
+@main.route('/delete/<int:id>',methods=['GET','POST'])
+@login_required
+def delete(id):
+   del_post = Post.query.filter_by(id=id).first()
+   db.session.delete(del_post)
+   db.session.commit()
+   
+   return redirect(url_for('main.index'))

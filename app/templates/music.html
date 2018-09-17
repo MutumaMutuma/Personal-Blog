@@ -25,7 +25,12 @@
                                 <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a></small>
                                 <br>
                                 <br>
-                                <div><a href="/comment/new/{{music.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+                                <p><a href="/comment/new/{{music.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> 
+                                {% if current_user.is_authenticated %}
+                                    <a href="/delete/{{ music.id}}"><button class="btn btn-outline-danger btn-sm"> <img src="https://cdn0.iconfinder.com/data/icons/ikooni-outline-free-basic/128/free-27-128.png" height="20px"> </button></a>
+                                
+                                {% endif %}
+                                </p>
                                 
                                 </div>
                                 
