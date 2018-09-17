@@ -94,21 +94,60 @@ def new_comment(id):
     comment = Comment.query.filter_by(post_id=id).all()
     return render_template('new_comment.html', title='New Post', comment=comment,comment_form=form, post ='New Post')
 
-@main.route('/post/music', methods=['GET','POST'])
+@main.route('/music/new', methods=['GET','POST'])
 @login_required
-def music(music):
-    form = PostForm()
+def music(category = "Music"):
 
-    if form.validate_on_submit():
-
-        title=form.title.data
-        content=form.content.data
-        category=form.category.data
-        post = Post(title=title, content=content,category=category)
-        # post.save_post(post)
-        db.session.add(post)
-        db.session.commit()
-        
+    musics = Post.query.filter_by(category = "Music")
+    
     title = "Music Blogs"
+    return render_template('music.html', musics= musics, title='New Post', post ='New Post')
 
-    return render_template('music.html', title='New Post', post ='New Post')
+
+@main.route('/animations/new', methods=['GET','POST'])
+@login_required
+def animations(category = "Animations"):
+
+    animations = Post.query.filter_by(category = "Animations")
+    
+    title = "Animations Blogs"
+    return render_template('animations.html', animations= animations, title='New Post', post ='New Post')
+
+
+@main.route('/adventure/new', methods=['GET','POST'])
+@login_required
+def adventure(category = "Adventures"):
+
+    adventures = Post.query.filter_by(category = "Adventures")
+    
+    title = "Adventures Blogs"
+    return render_template('adventure.html', adventures= adventures, title='New Post', post ='New Post')
+
+
+@main.route('/celebrity/new', methods=['GET','POST'])
+@login_required
+def celebrity(category = "Celebrity"):
+
+    celebritys = Post.query.filter_by(category = "Celebrity")
+    
+    title = "Celebrity Blogs"
+    return render_template('celebrity.html', celebritys= celebritys, title='New Post', post ='New Post')
+
+
+@main.route('/nature/new', methods=['GET','POST'])
+@login_required
+def nature(category = "Nature"):
+
+    natures = Post.query.filter_by(category = "Nature")
+    
+    title = "Nature Blogs"
+    return render_template('nature.html', natures= natures, title='New Post', post ='New Post')
+
+@main.route('/fashion/new', methods=['GET','POST'])
+@login_required
+def fashion(category = "Fashion"):
+
+    fashions = Post.query.filter_by(category = "Fashion")
+    
+    title = "Nature Blogs"
+    return render_template('fashion.html', fashions= fashions, title='New Post', post ='New Post')
