@@ -5,9 +5,12 @@
 <div class="container-fluid">
     <div  style=" padding-bottom: 130px; padding-top: 130px;" class="row">
         <div class= "col-md-2">
+        
+            
             <a href="{{ url_for('main.new_post') }}"><button style="color: black;" class="btn btn-outline-info btn-sm">Post a blog</button></a>
         </div>
         <div class= "col-md-8">
+        <h3 style="font-family: 'Courgette', cursive;">{{ title}}</h3>
             {% for adventure in adventures %} 
                     <div style="background-color:#b3d7ef;" class="card">
                         <article class="media content-section">
