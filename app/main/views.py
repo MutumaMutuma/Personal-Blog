@@ -174,7 +174,7 @@ def feuds(category = "Feuds"):
     
     title = "Feuds Blogs"
     
-    return render_template('fashion.html', feudss= feudss, title=title, post ='New Post')
+    return render_template('feuds.html', feudss= feudss, title=title, post ='New Post')
 
 
 
@@ -186,7 +186,7 @@ def newcars(category = "New cars"):
     
     title = "New cars Blogs"
     
-    return render_template('fashion.html', newcarss= newcarss, title=title, post ='New Post')
+    return render_template('newcars.html', newcarss= newcarss, title=title, post ='New Post')
 
 @main.route('/delete/<int:id>',methods=['GET','POST'])
 @login_required

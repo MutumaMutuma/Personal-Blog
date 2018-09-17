@@ -9,7 +9,7 @@
         </div>
         <div class= "col-md-8">
                 <h3 style="font-family: 'Courgette', cursive;">{{ title}}</h3>
-            {% for music in musics %} 
+            {% for newcars in newcarss %} 
                     <div style="background-color:#b3d7ef;" class="card">
                         <article class="media content-section">
                             <div class="card-title">
@@ -17,16 +17,16 @@
                                 
                                 </div>
                                 <div class="card-body">
-                                <small> {{ music.posted_on }}</small>
-                                <h5> {{ music.title }} </h5>
+                                <small> {{ newcars.posted_on }}</small>
+                                <h5> {{ newcars.title }} </h5>
                                 
-                                <p> {{ music.content }}</p>
+                                <p> {{ newcars.content }}</p>
                                 <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a></small>
                                 <br>
                                 <br>
-                                <p><a href="/comment/new/{{music.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> 
+                                <p><a href="/comment/new/{{newcars.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> 
                                 {% if current_user.is_authenticated %}
-                                    <a href="/delete/{{ music.id}}"><button class="btn btn-outline-danger btn-sm"> <img src="https://cdn0.iconfinder.com/data/icons/ikooni-outline-free-basic/128/free-27-128.png" height="20px"> </button></a>
+                                    <a href="/delete/{{ newcars.id}}"><button class="btn btn-outline-danger btn-sm"> <img src="https://cdn0.iconfinder.com/data/icons/ikooni-outline-free-basic/128/free-27-128.png" height="20px"> </button></a>
                                 
                                 {% endif %}
                                 </p>
