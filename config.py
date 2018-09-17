@@ -11,7 +11,7 @@ class Config:
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_COPPER_URL")
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('postgresql-opaque-49956')
