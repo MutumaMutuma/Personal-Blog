@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+        {% block content %}
+<div class="container-fluid">
+    <div  style="background-color:#deeef9; padding-bottom: 130px; padding-top: 130px;" class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"> 
+                    
+                    </div>
+                    <div style="color:white; background-image: url(https://static.makeuseof.com/wp-content/uploads/2012/02/Ying-and-Yang.png); background-size: cover; background-repeat: no-repeat;" class="col-md-8">
+                        <img style="text-align: center;" class="align-center img-responsive" src="https://media.giphy.com/media/107yCzSpEGea1G/giphy.gif" height="100px">
+                    {{wtf.quick_form(registration_form)}}
+
+                    </div>
+                    <div class="col-md-2">
+                    
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+        {% endblock%}
+    
