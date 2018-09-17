@@ -20,7 +20,7 @@
         
         <li class="nav navbar-nav navbar-right">
                     {% if current_user.is_authenticated %}
-                    <li><img style="border-radius: 50%;  height:9vh; width: 4.2vw;" src="{{url_for('static',filename=current_user.profile_pic_path)}}" alt=""  class="img-circle img-thumbnail"></li>
+                    
                     <li><a style="color: gold;" href="{{url_for('main.profile',uname=current_user.username)}}" class="nav-link">{{current_user.username}}</a></li>
                     <li><a style="color: gold;" class="nav-link" href="{{url_for('auth.logout')}}">Sign out</a></li>
                     {% else %}
