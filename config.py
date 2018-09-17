@@ -1,34 +1,27 @@
 import os
 
 class Config:
-    '''
-    General configuration parent class
-    '''
-    SOURCE_API_BASE_URL ='https://newsapi.org/v2/sources?category={}&apiKey={}'
-    ARTICLES_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
-    API_KEY= os.environ.get('API_KEY')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY='01570936bd6b231dd1e1037bb224cd'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+
 class ProdConfig(Config):
-    '''
-    Production  configuration child class
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-    pass
-
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = os.environ.get('HEROKU_POSTGRESQL_ONYX_URL')
 
 class DevConfig(Config):
-    '''
-    Development  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://zamzam:Ilovememore100@localhost/personalblog'
     DEBUG = True
 
 config_options = {
 'development':DevConfig,
-'production':ProdConfig
-}
+'production':ProdConfig,
+'test':TestConfig
+}    

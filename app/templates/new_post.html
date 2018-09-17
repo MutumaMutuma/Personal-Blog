@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div class="container-fluid">
+    <div  style="background-color:#deeef9; padding-bottom: 130px; padding-top: 130px;" class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"> 
+                    
+                    </div>
+                    <div style="color:white; background-image: url(https://static.makeuseof.com/wp-content/uploads/2012/02/Ying-and-Yang.png);" class="col-md-8">
+
+                    {{wtf.quick_form(post_form)}}
+
+                    </div>
+                    <div class="col-md-2">
+                    
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock%}
+    

@@ -6,7 +6,7 @@ from sqlalchemy import util as sqlautil
 from ..util import compat
 
 _relative_destination = re.compile(r'(?:(.+?)@)?(\w+)?((?:\+|-)\d+)')
-_revision_illegal_chars = ['@', '-']
+_revision_illegal_chars = ['@', '-', '+']
 
 
 class RevisionError(Exception):
@@ -348,6 +348,9 @@ class RevisionMap(object):
         try:
             revision = self._revision_map[resolved_id]
         except KeyError:
+            # break out to avoid misleading py3k stack traces
+            revision = False
+        if revision is False:
             # do a partial lookup
             revs = [x for x in self._revision_map
                     if x and x.startswith(resolved_id)]
@@ -653,7 +656,7 @@ class RevisionMap(object):
         uppers = util.dedupe_tuple(self.get_revisions(upper))
 
         if not uppers and not requested_lowers:
-            raise StopIteration()
+            return
 
         upper_ancestors = set(self._get_ancestor_nodes(uppers, check=True))
 
@@ -713,7 +716,7 @@ class RevisionMap(object):
             # if the requested start is one of those branch points,
             # then just return empty set
             if start_from.intersection(upper_ancestors):
-                raise StopIteration()
+                return
             else:
                 # otherwise, they requested nodes out of
                 # order

@@ -29,11 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
-set -gx VIRTUAL_ENV "/home/zamzam/Documents/News-Highlights/virtual"
-=======
-set -gx VIRTUAL_ENV "/home/zamzam/Documents/PersonalBlog/virtual"
->>>>>>> 8716db09c96ca7c5837738b5381f93fc4523649c
+set -gx VIRTUAL_ENV "/home/zamzam/Documents/Blog/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

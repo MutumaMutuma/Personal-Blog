@@ -1,5 +1,5 @@
 # orm/identity.py
-# Copyright (C) 2005-2017 the SQLAlchemy authors and contributors
+# Copyright (C) 2005-2018 the SQLAlchemy authors and contributors
 # <see AUTHORS file>
 #
 # This module is part of SQLAlchemy and is released under
@@ -209,13 +209,19 @@ class WeakInstanceDict(IdentityMap):
             return list(self._dict.values())
 
     def _fast_discard(self, state):
-        self._dict.pop(state.key, None)
+        # used by InstanceState for state being
+        # GC'ed, inlines _managed_removed_state
+        try:
+            st = self._dict[state.key]
+        except KeyError:
+            # catch gc removed the key after we just checked for it
+            pass
+        else:
+            if st is state:
+                self._dict.pop(state.key, None)
 
     def discard(self, state):
-        st = self._dict.pop(state.key, None)
-        if st:
-            assert st is state
-            self._manage_removed_state(state)
+        self.safe_discard(state)
 
     def safe_discard(self, state):
         if state.key in self._dict:
@@ -311,14 +317,19 @@ class StrongInstanceDict(IdentityMap):
         state._instance_dict = self._wr
 
     def _fast_discard(self, state):
-        self._dict.pop(state.key, None)
+        # used by InstanceState for state being
+        # GC'ed, inlines _managed_removed_state
+        try:
+            obj = self._dict[state.key]
+        except KeyError:
+            # catch gc removed the key after we just checked for it
+            pass
+        else:
+            if attributes.instance_state(obj) is state:
+                self._dict.pop(state.key, None)
 
     def discard(self, state):
-        obj = self._dict.pop(state.key, None)
-        if obj is not None:
-            self._manage_removed_state(state)
-            st = attributes.instance_state(obj)
-            assert st is state
+        self.safe_discard(state)
 
     def safe_discard(self, state):
         if state.key in self._dict:

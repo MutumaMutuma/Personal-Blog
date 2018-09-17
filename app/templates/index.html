@@ -1,10 +1,110 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+{% extends 'base.html' %}
     <body>
     {% block content %}
+<div class="container-fluid">
+    <div  style="background-color: inherit; background-attachment: fixed; height: 100%; padding-top: 130px;" class="row">
+        
+        <div class="col-md-2">
+        <IMG SRC="https://gph.is/2uzzAeR">
+        </div>
+        <div class="col-md-8">
+        <div style="" class="row">
+            <div class="col-md-4">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="https://i0.wp.com/heartsongs.ca/index/wp-content/uploads/2016/10/hd-background-music-7.jpg?resize=350%2C200&ssl=1" alt="">
+                    <div class="overlay">
+                        <h2>Music</h2>
+                        <a class="info" href="{{ url_for('main.music') }}"> Blogs </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="https://i0.wp.com/www.comicmix.com//wp-content/uploads/2016/12/moana-fallback_fde4d101.jpeg?resize=350%2C200" alt="">
+                    <div class="overlay">
+                        <h2>Animations</h2>
+                        <a class="info" href="#">Blogs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="https://divinghalkidiki.files.wordpress.com/2016/12/slide-01.jpg?w=350&h=200&crop=1" alt="">
+                    <div class="overlay">
+                        <h2>Adventures</h2>
+                        <a class="info" href="#">Blogs</a>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        <br>
+        </br>
+        <div style="" class="row">
+            <div class="col-md-4">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="https://i0.wp.com/blackyouthproject.com/wp-content/uploads/2016/07/Zendaya.jpg?fit=640%2C480&resize=350%2C200" alt="">
+                    <div class="overlay">
+                        <h2>Celebrity</h2>
+                        <a class="info" href="#"> Blogs </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="https://ugecviewpoints.files.wordpress.com/2016/06/shutterstock_243805252.jpg?w=350&h=200&crop=1" alt="">
+                    <div class="overlay">
+                        <h2>Nature</h2>
+                        <a class="info" href="#">Blogs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="hovereffect">
+                    <img class="img-responsive" src="http://www.afronline.org/wp-content/uploads/2013/11/Rwanda-AfricanFashion.jpg" alt="">
+                    <div class="overlay">
+                        <h2>Fashion</h2>
+                        <a class="info" href="#">Blogs</a>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+        <a href="{{ url_for('main.new_post') }}"><button style="color: black;" class="btn btn-outline-info btn-sm">Post a post</button></a>
+            <br>
+            <br>
+            {% for post in posts %} 
+                <div style="background-color:#b3d7ef;" class="card">
+                    <article class="media content-section">
+                        <div class="card-title">
+                            <div class="article-metadata">
+                              
+                            </div>
+                            <div class="card-body">
+                            <small> {{ post.posted_on }}</small>
+                            <h4>Category: {{ post.category }}</h4>
+                            <small> {{ post.title }} </small>
+                            
+                            <p> {{ post.content }}</p>
+                            <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a></small>
+                            <br>
+                            <br>
+                            <div><a href="/comment/new/{{post.id}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+                            
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>   
+            {% endfor %}
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+
     
-<h3>
-    hEllo wORld
-</h3>
-    {% endblock %}
+</div>  
+{% endblock  %}
     </body>

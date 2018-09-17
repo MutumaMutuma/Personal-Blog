@@ -37,11 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
-VIRTUAL_ENV="/home/zamzam/Documents/News-Highlights/virtual"
-=======
-VIRTUAL_ENV="/home/zamzam/Documents/PersonalBlog/virtual"
->>>>>>> 8716db09c96ca7c5837738b5381f93fc4523649c
+VIRTUAL_ENV="/home/zamzam/Documents/Blog/virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -31,7 +31,7 @@ class BaseSocket(object):
 
         self.sock = self.set_options(sock, bound=bound)
 
-    def __str__(self, name):
+    def __str__(self):
         return "<socket %d>" % self.sock.fileno()
 
     def __getattr__(self, name):
@@ -39,11 +39,12 @@ class BaseSocket(object):
 
     def set_options(self, sock, bound=False):
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        if hasattr(socket, 'SO_REUSEPORT'):  # pragma: no cover
+        if (self.conf.reuse_port
+            and hasattr(socket, 'SO_REUSEPORT')):  # pragma: no cover
             try:
                 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
             except socket.error as err:
-                if err[0] not in (errno.ENOPROTOOPT, errno.EINVAL):
+                if err.errno not in (errno.ENOPROTOOPT, errno.EINVAL):
                     raise
         if not bound:
             self.bind(sock)
@@ -94,7 +95,7 @@ class TCP6Socket(TCPSocket):
     FAMILY = socket.AF_INET6
 
     def __str__(self):
-        (host, port, fl, sc) = self.sock.getsockname()
+        (host, port, _, _) = self.sock.getsockname()
         return "http://[%s]:%d" % (host, port)
 
 

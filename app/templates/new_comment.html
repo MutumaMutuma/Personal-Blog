@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div class="container-fluid">
+    <div  style="background-color:#deeef9; padding-bottom: 130px; padding-top: 130px;" class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"> 
+                        <a href="/"><img src="https://www.logolynx.com/images/logolynx/52/52c91a3ad83f2025fae1cc9755ebc6a2.png" height="70px"> </a>
+                    </div>
+                    <div style="color:white; background-image: url(https://static.makeuseof.com/wp-content/uploads/2012/02/Ying-and-Yang.png);" class="col-md-8">
+
+                        {{ wtf.quick_form(comment_form) }}
+
+                    </div>
+                    <div class="col-md-2">
+                    
+                    </div>
+                    
+                </div>
+                <br>
+                <br>
+            
+                <div style="width: 300px;" class="container">
+                    {% for comment in comment%}
+                    <div class="card">
+                        <div class="card-title">
+                            Comment {{ comment.username }}
+                        </div>
+                        <div class="card-body">
+                            <li>{{comment.comment_content}}</li>
+                        </div>
+                        <div class="card-footer">
+                            <h6><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a><h6>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+                    
+</div>
+{% endblock%}
+    
