@@ -1,7 +1,7 @@
 import os
 
 class Config:
-    SECRET_KEY='01570936bd6b231dd1e1037bb224cd'
+    SECRET_KEY='01570936bd6b231dd1e14cd'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -14,7 +14,7 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('HEROKU_POSTGRESQL_ONYX_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('postgresql-opaque-49956')
 
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://zamzam:Ilovememore100@localhost/personalblog'
