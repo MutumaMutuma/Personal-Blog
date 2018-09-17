@@ -1,5 +1,7 @@
 # Personal-Blog
 
+ By [Lewis Mutuma](https://mutumamutuma.github.io/Portfolio/)
+
 ## User Requirements
 
 + [x] As a user I would like to view the blog posts submitted
