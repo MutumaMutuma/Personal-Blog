@@ -52,11 +52,12 @@ pip3 install -r requirements
 
 ### Prepare environmet variables
 
+In start.sh file, in the root folder
+
 ```bash
  export MAIL_USERNAME=YOUR EMAIL
  export MAIL_PASSWORD=EMAIL PASSWORD
  export ADMIN_MAIL_USERNAME=ADMIN ACCOUNT EMAIL
- export DATABASE_URL=POSTGRESQL DATABASE PATH WITH DRIVER
 ```
 
 
