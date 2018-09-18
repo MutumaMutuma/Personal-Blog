@@ -28,7 +28,7 @@ This project was created on a debian linux platform but should work on other uni
 
 ### Cloning the repository
 
-```git clone```
+```git clone https://github.com/MutumaMutuma/Personal-Blog.git```
 
 
 ### Database migrations
