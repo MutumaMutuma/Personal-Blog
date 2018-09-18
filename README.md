@@ -19,7 +19,7 @@
 
 ## Specifications
 
-[Specifications file](https://github.com/MutumaMutuma/Personal-Blog/blob/master/specs.md)
+[SPECS.md](https://github.com/MutumaMutuma/Personal-Blog/blob/master/specs.md)
 
 ### Requirements
 This project was created on a debian linux platform but should work on other unix based[not limited to] sytems.
